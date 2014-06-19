@@ -1,18 +1,15 @@
-require 'sinatra'
 require 'json'
-
-get '/' do
-  "the time where this server lives is #{Time.now}
-<br /><br />check out your <a href=\"/agent\">user_agent</a>"
+require 'sinatra'
+ 
+chief_complaints = [
+{ name: "Dizziness" },
+{ name: "Chest Pain" },
+]
+ 
+before /.*/ do
+content_type :json
 end
-
-get '/agent' do
-  "you're using #{request.user_agent}"
+ 
+get '/chief_complaints' do
+chief_complaints.to_json
 end
-
-get '/example.json' do 
-  content_type :json
-  { key1 => 'value1', key2 => 'value2' }.to_json
-end 
-
-  
