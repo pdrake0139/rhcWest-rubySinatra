@@ -1,4 +1,4 @@
-orequire 'sinatra'
+require 'sinatra'
 require 'json'
 
 get '/' do
